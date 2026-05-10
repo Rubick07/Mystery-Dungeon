@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
     public void Initialize(Tank tank)
     {
         owner = tank;
+
+        transform.right = owner.gameObject.transform.right;
     }
 
     private void Update()
@@ -19,6 +21,15 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Projectile otherProjectile = other.GetComponent<Projectile>();
+
+        if (otherProjectile != null)
+        {
+            Destroy(otherProjectile.gameObject);
+            Destroy(gameObject);
+
+            return;
+        }
 
         Tank target = other.GetComponent<Tank>();
 

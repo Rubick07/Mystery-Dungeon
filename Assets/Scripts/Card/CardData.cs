@@ -7,10 +7,13 @@ public class CardData : ScriptableObject
     public Sprite artwork;
     public CardRarity rarity;
     public CardType cardType; // Bullet, Magic, Crew
+    public CardDeliveryMethod deliveryMethod;
     public List<CardTag> tags;
 
     [TextArea(5,10)]
     public string descText;
+
+    public float productionTime = 2f;
 
     public CardActions action;
 }
@@ -37,4 +40,11 @@ public enum CardTag
     Magic,
     Crew,
     Shield
+}
+
+public enum CardDeliveryMethod
+{
+    Cannon,
+    Instant,
+    SpawnInsideTank,
 }

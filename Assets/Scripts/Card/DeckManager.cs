@@ -6,68 +6,58 @@ public class DeckManager : MonoBehaviour
 {
     public static DeckManager instance;
 
-    public event EventHandler<RuntimeCard> OnCardDrawn;
-    public event EventHandler<RuntimeCard> OnCardUse;
+    [SerializeField] private List<CardData> startingDeck;
 
-    public List<CardData> startingDeck;
-    [SerializeField] private Tank playerTank;
-    [SerializeField] private Tank enemyTank;
+    private List<CardData> cardList;
 
-
-    private List<RuntimeCard> drawPile = new();
-    private List<RuntimeCard> hand = new();
-    private List<RuntimeCard> discardPile = new();
-
-    private void Awake()
-    {
-        instance = this;
-    }
+    private Queue<RuntimeCard> drawPile = new();
 
     private void Start()
     {
-        BuildDeck();
-        Shuffle(drawPile);
-
-        Draw(5);
+        Initialize(startingDeck);
     }
 
-    void BuildDeck()
+    public void Initialize(List<CardData> deck)
     {
-        foreach (var card in startingDeck)
+        List<RuntimeCard> runtimeCards = new();
+
+        cardList = startingDeck;
+
+        foreach (var card in deck)
         {
-            drawPile.Add(new RuntimeCard(card));
+            runtimeCards.Add(new RuntimeCard(card));
+        }
+
+        Shuffle(runtimeCards);
+
+        foreach (var card in runtimeCards)
+        {
+            drawPile.Enqueue(card);
         }
     }
 
-    public void Draw(int amount)
+    public RuntimeCard GetNextCard()
     {
-        for (int i = 0; i < amount; i++)
+        List<RuntimeCard> runtimeCards = new();
+
+
+        if (drawPile.Count <= 0)
         {
-            if (drawPile.Count == 0)
+            foreach (var card in cardList)
             {
-                Reshuffle();
+                runtimeCards.Add(new RuntimeCard(card));
             }
 
-            if (drawPile.Count == 0)
-                return;
-
-            RuntimeCard card = drawPile[0];
-            drawPile.RemoveAt(0);
-
-            hand.Add(card);
-
-            OnCardDrawn?.Invoke(this, card);
-
-            Debug.Log("Draw: " + card.Data.cardName);
+            Shuffle(runtimeCards);
         }
-    }
 
-    void Reshuffle()
-    {
-        drawPile.AddRange(discardPile);
-        discardPile.Clear();
+        foreach (var card in runtimeCards)
+        {
+            drawPile.Enqueue(card);
+        }
 
-        Shuffle(drawPile);
+
+        return drawPile.Dequeue();
     }
 
     void Shuffle(List<RuntimeCard> list)
@@ -79,25 +69,5 @@ public class DeckManager : MonoBehaviour
             (list[i], list[rand]) = (list[rand], list[i]);
         }
     }
-
-    public void PlayCard(RuntimeCard card)
-    {
-        BattleContext context = new BattleContext
-        {
-            Owner = playerTank,
-            Enemy = enemyTank
-        };
-
-        card.Data.action.Activate(context);
-
-        hand.Remove(card);
-
-        
-
-        discardPile.Add(card);
-
-        OnCardUse?.Invoke(this, card);
-    }
-
 
 }

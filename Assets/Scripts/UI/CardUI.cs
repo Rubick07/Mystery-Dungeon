@@ -16,8 +16,8 @@ public class CardUI : MonoBehaviour
         button.onClick.AddListener( () => 
         {
             Destroy(gameObject);
-            DeckManager.instance.PlayCard(runtimeCard);
 
+            HandSystem.instance.PlayCard(runtimeCard);
         });
     }
 

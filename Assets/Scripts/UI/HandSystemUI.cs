@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-public class DeckManagerUI : MonoBehaviour
+public class HandSystemUI : MonoBehaviour
 {
     [Header("REFERENCE")]
     [SerializeField] private Transform cardUITransformPrefab;
@@ -10,18 +10,16 @@ public class DeckManagerUI : MonoBehaviour
 
     private void Start()
     {
-        DeckManager.instance.OnCardDrawn += DeckManager_OnCardDrawn;
-        DeckManager.instance.OnCardUse += DeckManager_OnCardUse;
 
         cardContainerTransform.RemoveAllChild();
     }
 
-    private void DeckManager_OnCardUse(object sender, RuntimeCard e)
+    private void HandSystem_OnCardUse(object sender, RuntimeCard e)
     {
         cardUIList.RemoveAll(item => item == null);
     }
 
-    private void DeckManager_OnCardDrawn(object sender, RuntimeCard e)
+    private void HandSystem_OnCardDrawn(object sender, RuntimeCard e)
     {
         Transform cardUITransform = Instantiate(cardUITransformPrefab, cardContainerTransform);
 
@@ -32,10 +30,17 @@ public class DeckManagerUI : MonoBehaviour
         cardUIList.Add(cardUI);
     }
 
-    
-
-    private void OnDestroy()
+    private void OnEnable()
     {
-        DeckManager.instance.OnCardDrawn -= DeckManager_OnCardDrawn;
+        HandSystem.instance.OnCardAdded += HandSystem_OnCardDrawn;
+        HandSystem.instance.OnCardRemoved += HandSystem_OnCardUse;
     }
+
+
+    private void OnDisable()
+    {
+        HandSystem.instance.OnCardAdded -= HandSystem_OnCardDrawn;
+        HandSystem.instance.OnCardRemoved -= HandSystem_OnCardUse;
+    }
+
 }

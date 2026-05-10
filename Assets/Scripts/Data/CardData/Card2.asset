@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92f72f27be66fd48ac450f6f8f4b556, type: 3}
+  m_Name: Card2
+  m_EditorClassIdentifier: 
+  cardName: bola
+  artwork: {fileID: 21300000, guid: 4a0e6b20b5ee4464ea45b8e17866aad9, type: 3}
+  rarity: 0
+  cardType: 0
+  deliveryMethod: 1
+  tags: 00000000
+  descText: ini bola
+  productionTime: 2
+  action: {fileID: 11400000, guid: d54497e12aaa9a44abaf386b890d8589, type: 2}

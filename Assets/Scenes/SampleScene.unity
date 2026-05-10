@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 350901888}
   - component: {fileID: 350901889}
   m_Layer: 5
-  m_Name: DeckManagerUI
+  m_Name: HandSystemUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -750,6 +750,86 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481361729}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &704764752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704764753}
+  - component: {fileID: 704764754}
+  m_Layer: 0
+  m_Name: HandSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &704764753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704764752}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 756153977}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &704764754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704764752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ed35d996a7acb46a4202ff9b9545f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHandSize: 5
+  playerTank: {fileID: 1135887009}
+  cardResolver: {fileID: 1135887014}
+--- !u!1 &756153976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 756153977}
+  m_Layer: 0
+  m_Name: System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756153977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756153976}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.059802026, y: 1.9661511, z: -0.017676873}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 865713812}
+  - {fileID: 704764753}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,12 +910,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingDeck:
   - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
+  - {fileID: 11400000, guid: 517682e3b2b81814fbd029b892af4f0d, type: 2}
+  - {fileID: 11400000, guid: 517682e3b2b81814fbd029b892af4f0d, type: 2}
   - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
   - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
-  - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
-  - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
-  playerTank: {fileID: 1135887009}
-  enemyTank: {fileID: 2115049260}
 --- !u!4 &865713812
 Transform:
   m_ObjectHideFlags: 0
@@ -844,12 +922,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865713810}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.059802026, y: -1.9661511, z: 0.017676873}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 756153977}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1135887008
 GameObject:
@@ -860,7 +938,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1135887010}
+  - component: {fileID: 1135887012}
   - component: {fileID: 1135887009}
+  - component: {fileID: 1135887011}
+  - component: {fileID: 1135887013}
+  - component: {fileID: 1135887014}
   m_Layer: 0
   m_Name: PlayerTank
   m_TagString: Untagged
@@ -882,6 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1707124262}
   hp: 100
+  cannonSystem: {fileID: 1135887011}
 --- !u!4 &1135887010
 Transform:
   m_ObjectHideFlags: 0
@@ -899,6 +982,68 @@ Transform:
   - {fileID: 1707124262}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1135887011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135887008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a28e67c644b5cc469288a411955348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerTank: {fileID: 1135887009}
+  reloadTime: 2
+--- !u!65 &1135887012
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135887008}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.9618921, y: 3.471838, z: 1}
+  m_Center: {x: -0.011185169, y: 0.02796197, z: -0}
+--- !u!114 &1135887013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135887008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816d735db679ae341b661f4100406df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deckManager: {fileID: 865713811}
+  handSystem: {fileID: 704764754}
+--- !u!114 &1135887014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135887008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f9b1625fb78a841a48eb60a382f597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonSystem: {fileID: 1135887011}
 --- !u!1 &1196740683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,8 +1371,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2115049261}
-  - component: {fileID: 2115049260}
   - component: {fileID: 2115049262}
+  - component: {fileID: 2115049260}
+  - component: {fileID: 2115049263}
+  - component: {fileID: 2115049264}
   m_Layer: 0
   m_Name: EnemyTank
   m_TagString: Untagged
@@ -1249,6 +1396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1573653148}
   hp: 100
+  cannonSystem: {fileID: 2115049263}
 --- !u!4 &2115049261
 Transform:
   m_ObjectHideFlags: 0
@@ -1287,6 +1435,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9618921, y: 3.471838, z: 1}
   m_Center: {x: -0.011185169, y: 0.02796197, z: -0}
+--- !u!114 &2115049263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115049259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a28e67c644b5cc469288a411955348b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerTank: {fileID: 2115049260}
+  reloadTime: 2
+--- !u!114 &2115049264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115049259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56be6d27908b85443a45c043d4bdf265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannon: {fileID: 2115049263}
+  attackCard: {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
+  interval: 3
 --- !u!1001 &5645688008546049928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1394,6 +1571,6 @@ SceneRoots:
   - {fileID: 1196740687}
   - {fileID: 1135887010}
   - {fileID: 2115049261}
-  - {fileID: 865713812}
   - {fileID: 221197961}
   - {fileID: 1595617371}
+  - {fileID: 756153977}
