@@ -9,8 +9,7 @@ public class HandSystem : MonoBehaviour
     public event EventHandler<RuntimeCard> OnCardRemoved;
 
     [SerializeField] private int maxHandSize = 5;
-    [SerializeField] private Tank playerTank;
-    [SerializeField] private CardResolver cardResolver;
+    [SerializeField] private CardPlayer cardPlayer;
 
     private List<RuntimeCard> hand = new();
 
@@ -43,16 +42,6 @@ public class HandSystem : MonoBehaviour
         return hand;
     }
 
-    public void PlayCard(RuntimeCard card)
-    {
-        BattleContext context = new BattleContext
-        {
-            Owner = playerTank,
-        };
-
-        cardResolver.PlayCard(card);
-
-        RemoveCard(card);
-    }
+    public CardPlayer GetCardPlayer() => cardPlayer;
 
 }

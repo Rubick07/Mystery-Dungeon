@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f92f72f27be66fd48ac450f6f8f4b556, type: 3}
-  m_Name: Card2
+  m_Script: {fileID: 11500000, guid: 7cb2a08f7967670469657c9a7668de87, type: 3}
+  m_Name: Crew Card Data
   m_EditorClassIdentifier: 
-  cardName: Reload
-  artwork: {fileID: 21300000, guid: f9ebd6bc1572a4d46b1de856444599b3, type: 3}
+  cardName: Spawn Goblin Engineer
+  artwork: {fileID: 21300000, guid: d3d2a09e2230e6e44a37a2b56cee3085, type: 3}
   rarity: 0
-  cardType: 0
-  deliveryMethod: 1
-  tags: 00000000
-  descText: reload
+  cardType: 2
+  deliveryMethod: 2
+  tags: 
+  descText: kartu buat manggil goblin enginer
   productionTime: 2
   action: {fileID: 11400000, guid: d54497e12aaa9a44abaf386b890d8589, type: 2}
+  crewData: {fileID: 11400000, guid: d166bfdb112de704e81856a6a220302d, type: 2}

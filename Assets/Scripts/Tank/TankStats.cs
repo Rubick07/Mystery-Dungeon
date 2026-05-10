@@ -1,16 +1,11 @@
 using UnityEngine;
 
-public class TankStats : MonoBehaviour
+[System.Serializable]
+public class TankStats
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public float reloadSpeed = 1f;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float productionSpeed = 1f;
+
+    public float projectileDamage = 1f;
 }

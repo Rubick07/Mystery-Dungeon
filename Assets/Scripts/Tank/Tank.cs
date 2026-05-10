@@ -6,7 +6,10 @@ public class Tank : MonoBehaviour
 
     public int hp = 100;
 
+    public TankStats stats = new();
+
     public CannonSystem cannonSystem;
+    public CrewManager crewManager;
 
     public void TakeDamage(int damage)
     {

@@ -3,8 +3,9 @@ using UnityEngine;
 public class CardResolver : MonoBehaviour
 {
     [SerializeField] private CannonSystem cannonSystem;
+    [SerializeField] private CrewManager crewManager;
 
-    public void PlayCard(RuntimeCard card)
+    public void PlayCard(RuntimeCard card,Tank owner,Tank enemy)
     {
         switch (card.Data.deliveryMethod)
         {
@@ -17,7 +18,7 @@ public class CardResolver : MonoBehaviour
                 break;
 
             case CardDeliveryMethod.SpawnInsideTank:
-                SpawnCrew(card);
+                RecruitCrew(card);
                 break;
         }
     }
@@ -27,8 +28,15 @@ public class CardResolver : MonoBehaviour
         Debug.Log("Instant Card");
     }
 
-    void SpawnCrew(RuntimeCard card)
+    void RecruitCrew(RuntimeCard card)
     {
-        Debug.Log("Spawn Crew");
+        CrewCardData crewCard =
+            card.Data as CrewCardData;
+
+        if (crewCard == null)
+            return;
+
+        crewManager.RecruitCrew(crewCard.crewData);
     }
+
 }

@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class CrewData : MonoBehaviour
+[CreateAssetMenu(menuName = "Crew/Crew Data")]
+public class CrewData : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string crewName;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Sprite portrait;
+
+    [TextArea]
+    public string description;
+
+    public CardData[] crewCards;
+
+    public CrewPassive passive;
 }

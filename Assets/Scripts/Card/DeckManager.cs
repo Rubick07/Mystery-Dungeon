@@ -4,8 +4,6 @@ using System;
 
 public class DeckManager : MonoBehaviour
 {
-    public static DeckManager instance;
-
     [SerializeField] private List<CardData> startingDeck;
 
     private List<CardData> cardList;
@@ -40,11 +38,15 @@ public class DeckManager : MonoBehaviour
     {
         List<RuntimeCard> runtimeCards = new();
 
-
         if (drawPile.Count <= 0)
         {
             foreach (var card in cardList)
             {
+                CrewCardData crewCard = card as CrewCardData;
+
+                if (crewCard != null)
+                    continue;
+
                 runtimeCards.Add(new RuntimeCard(card));
             }
 
@@ -68,6 +70,16 @@ public class DeckManager : MonoBehaviour
 
             (list[i], list[rand]) = (list[rand], list[i]);
         }
+    }
+
+    public void AddCardToDeck(CardData cardData)
+    {
+        RuntimeCard runtimeCard =
+            new RuntimeCard(cardData);
+
+        cardList.Add(cardData);
+        drawPile.Enqueue(runtimeCard);
+
     }
 
 }

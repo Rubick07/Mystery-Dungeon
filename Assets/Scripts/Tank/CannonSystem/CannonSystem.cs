@@ -35,7 +35,10 @@ public class CannonSystem : MonoBehaviour
 
         Debug.Log("Reloading...");
 
-        yield return new WaitForSeconds(reloadTime);
+        float finalReload = reloadTime * ownerTank.stats.reloadSpeed;
+
+
+        yield return new WaitForSeconds(finalReload);
 
         RuntimeCard card = cardQueue.Dequeue();
 

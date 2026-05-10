@@ -17,7 +17,7 @@ public class CardUI : MonoBehaviour
         {
             Destroy(gameObject);
 
-            HandSystem.instance.PlayCard(runtimeCard);
+            HandSystem.instance.GetCardPlayer().PlayCard(runtimeCard);
         });
     }
 
