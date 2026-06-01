@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f92f72f27be66fd48ac450f6f8f4b556, type: 3}
-  m_Name: Card2
+  m_Name: RepairCard
   m_EditorClassIdentifier: 
-  cardName: Reload
-  artwork: {fileID: 21300000, guid: f9ebd6bc1572a4d46b1de856444599b3, type: 3}
+  cardName: Repair
+  artwork: {fileID: 21300000, guid: faf3d195add4cd0428d7f8589bf105b5, type: 3}
   rarity: 0
-  cardType: 0
+  cardType: 1
   deliveryMethod: 1
-  tags: 00000000
-  descText: reload
+  tags: 01000000
+  descText: Ketok Magic
   productionTime: 2
-  action: {fileID: 11400000, guid: d54497e12aaa9a44abaf386b890d8589, type: 2}
+  action: {fileID: 11400000, guid: 9b5e3d46f20156a498de7ad56206022c, type: 2}

@@ -10,7 +10,18 @@ public class CrewData : ScriptableObject
     [TextArea]
     public string description;
 
+    public CrewTag[] tags;
+
     public CardData[] crewCards;
 
     public CrewPassive passive;
+}
+
+public enum CrewTag
+{
+    Engineer,
+    Mage,
+    Demolition,
+    Support,
+    Chaos
 }

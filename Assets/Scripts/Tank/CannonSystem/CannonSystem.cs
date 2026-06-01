@@ -10,6 +10,7 @@ public class CannonSystem : MonoBehaviour
     private Queue<RuntimeCard> cardQueue = new();
 
     private bool isReloading;
+    private float reloadMultiplier = 1f;
 
     public void AddCard(RuntimeCard card)
     {
@@ -35,7 +36,7 @@ public class CannonSystem : MonoBehaviour
 
         Debug.Log("Reloading...");
 
-        float finalReload = reloadTime * ownerTank.stats.reloadSpeed;
+        float finalReload = reloadTime * ownerTank.stats.reloadSpeed * reloadMultiplier;
 
 
         yield return new WaitForSeconds(finalReload);
@@ -60,4 +61,15 @@ public class CannonSystem : MonoBehaviour
 
         Debug.Log("FIRE: " + card.Data.cardName);
     }
+
+    public void AddReloadMultiplier(float a)
+    {
+        reloadMultiplier *= a;
+    }
+
+    public void RemoveReloadMultiplier(float a)
+    {
+        reloadMultiplier /= a;
+    }
+
 }

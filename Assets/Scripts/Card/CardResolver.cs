@@ -7,6 +7,13 @@ public class CardResolver : MonoBehaviour
 
     public void PlayCard(RuntimeCard card,Tank owner,Tank enemy)
     {
+        BattleContext context = new BattleContext
+        {
+            Owner = owner,
+            Enemy = enemy,
+            Card = card
+        };
+
         switch (card.Data.deliveryMethod)
         {
             case CardDeliveryMethod.Cannon:
@@ -14,7 +21,7 @@ public class CardResolver : MonoBehaviour
                 break;
 
             case CardDeliveryMethod.Instant:
-                ResolveInstant(card);
+                ResolveInstant(card, context);
                 break;
 
             case CardDeliveryMethod.SpawnInsideTank:
@@ -23,9 +30,9 @@ public class CardResolver : MonoBehaviour
         }
     }
 
-    void ResolveInstant(RuntimeCard card)
+    void ResolveInstant(RuntimeCard card, BattleContext battleContext)
     {
-        Debug.Log("Instant Card");
+        card.Data.action.Activate(battleContext);
     }
 
     void RecruitCrew(RuntimeCard card)
