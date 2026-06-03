@@ -4,6 +4,9 @@ using System;
 
 public class Tank : MonoBehaviour
 {
+
+    public static event EventHandler OnAnyPlayerTankTakeDamage;
+
     public event EventHandler OnTankTakeDamage;
     public event EventHandler OnTankTakeHeal;
     public event EventHandler OnTankHpChanged;
@@ -18,7 +21,11 @@ public class Tank : MonoBehaviour
     public CannonSystem cannonSystem;
     public CrewManager crewManager;
 
+    public bool isEnemy;
+
     private int maxHP;
+    private int lastDamageValue;
+
 
     private void Awake()
     {
@@ -29,8 +36,16 @@ public class Tank : MonoBehaviour
     {
         ModifyHealth(-damage);
 
+        lastDamageValue = damage;
+
         OnTankTakeDamage?.Invoke(this, EventArgs.Empty);
         Debug.Log(name + " kena damage " + damage);
+
+        if (!isEnemy)
+        {
+            OnAnyPlayerTankTakeDamage?.Invoke(this, EventArgs.Empty);
+        }
+
     }
 
     public void Heal(int amount)
@@ -51,6 +66,12 @@ public class Tank : MonoBehaviour
     {
         return (float)currentHealth / maxHP;
     }
+
+    public int GetLastDamageValue()
+    {
+        return lastDamageValue;
+    }
+
 
     public int GetMaxHP() => maxHP;
 }
