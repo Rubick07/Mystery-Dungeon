@@ -10,6 +10,8 @@ public class TankHPUI : MonoBehaviour
 
     private void Start()
     {
+        hpText.text = tank.currentHealth.ToString() + "/" + tank.GetMaxHP().ToString();
+
         tank.OnTankHpChanged += Tank_OnTankHpChanged;
     }
 

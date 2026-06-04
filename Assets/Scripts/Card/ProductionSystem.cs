@@ -9,8 +9,23 @@ public class ProductionSystem : MonoBehaviour
 
     private float timer;
 
+    private bool isActive = true;
+
+    private void Start()
+    {
+        BattleManager.instance.OnBattleEnd += BattleManager_OnBattleEnd;
+    }
+
+    private void BattleManager_OnBattleEnd(object sender, System.EventArgs e)
+    {
+        isActive = false;
+    }
+
     private void Update()
     {
+        if (!isActive)
+            return;
+
         ProduceCard();
     }
 

@@ -7,6 +7,8 @@ public class Tank : MonoBehaviour
 
     public static event EventHandler OnAnyPlayerTankTakeDamage;
 
+    public static event EventHandler<bool> OnAnyTankDied;
+
     public event EventHandler OnTankTakeDamage;
     public event EventHandler OnTankTakeHeal;
     public event EventHandler OnTankHpChanged;
@@ -23,7 +25,7 @@ public class Tank : MonoBehaviour
 
     public bool isEnemy;
 
-    private int maxHP;
+    [HideInInspector]public int maxHP;
     private int lastDamageValue;
 
 
@@ -46,6 +48,13 @@ public class Tank : MonoBehaviour
             OnAnyPlayerTankTakeDamage?.Invoke(this, EventArgs.Empty);
         }
 
+        if(currentHealth <= 0)
+        {
+            OnAnyTankDied?.Invoke(this, isEnemy);
+
+            Destroy(gameObject);
+        }
+
     }
 
     public void Heal(int amount)
@@ -62,6 +71,15 @@ public class Tank : MonoBehaviour
 
         OnTankHpChanged?.Invoke(this, EventArgs.Empty);
     }
+
+    public void AddMaxHP(int amount)
+    {
+        currentHealth += amount;
+        maxHP += amount;
+
+        OnTankHpChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     public float GetHealthNormalized()
     {
         return (float)currentHealth / maxHP;
@@ -71,7 +89,6 @@ public class Tank : MonoBehaviour
     {
         return lastDamageValue;
     }
-
 
     public int GetMaxHP() => maxHP;
 }
