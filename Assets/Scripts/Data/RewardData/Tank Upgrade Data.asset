@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Tank Upgrade Data
   m_EditorClassIdentifier: 
   upgradeName: Ketok
-  hpBonus: 0
+  hpBonus: 20
   reloadMultiplier: 1
