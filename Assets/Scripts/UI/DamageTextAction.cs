@@ -29,4 +29,9 @@ public class DamageTextAction : MonoBehaviour
         Destroy(damageTextTransform.gameObject, 1f);
     }
 
+
+    private void OnDestroy()
+    {
+        tank.OnTankTakeDamage += Tank_OnTankTakeDamage;
+    }
 }

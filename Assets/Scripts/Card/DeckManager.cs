@@ -4,22 +4,15 @@ using System;
 
 public class DeckManager : MonoBehaviour
 {
-    [SerializeField] private List<CardData> startingDeck;
-
-    private List<CardData> cardList;
+    private List<CardData> cardList = new();
 
     private Queue<RuntimeCard> drawPile = new();
-
-    private void Start()
-    {
-        Initialize(startingDeck);
-    }
 
     public void Initialize(List<CardData> deck)
     {
         List<RuntimeCard> runtimeCards = new();
 
-        cardList = startingDeck;
+        cardList = deck;
 
         foreach (var card in deck)
         {
@@ -74,12 +67,16 @@ public class DeckManager : MonoBehaviour
 
     public void AddCardToDeck(CardData cardData)
     {
-        RuntimeCard runtimeCard =
-            new RuntimeCard(cardData);
+        RuntimeCard runtimeCard = new RuntimeCard(cardData);
 
         cardList.Add(cardData);
         drawPile.Enqueue(runtimeCard);
 
+    }
+
+    public void Clear()
+    {
+        cardList.Clear();
     }
 
 }

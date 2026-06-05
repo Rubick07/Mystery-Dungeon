@@ -22,5 +22,10 @@ public class TankHPUI : MonoBehaviour
         hpBarImage.fillAmount = tank.GetHealthNormalized();
     }
 
+    private void OnDestroy()
+    {
+        tank.OnTankHpChanged -= Tank_OnTankHpChanged;
+    }
+
 
 }

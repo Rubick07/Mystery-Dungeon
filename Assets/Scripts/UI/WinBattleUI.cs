@@ -38,7 +38,13 @@ public class WinBattleUI : MonoBehaviour
 
 
     public void Show() => gameObject.SetActive(true);
-
     public void Hide() => gameObject.SetActive(false);
+
+    private void OnDestroy()
+    {
+        BattleManager.instance.OnBattleWin -= BattleManager_OnBattleWin;
+        RewardSystem.Instance.OnRewardClaim -= BattleManager_OnRewardClaim;
+    }
+
 
 }

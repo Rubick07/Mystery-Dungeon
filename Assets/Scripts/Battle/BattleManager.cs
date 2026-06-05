@@ -45,4 +45,9 @@ public class BattleManager : MonoBehaviour
         OnBattleWin?.Invoke(this, rewards);
     }
 
+    private void OnDestroy()
+    {
+        Tank.OnAnyTankDied -= Tank_OnAnyTankDied;
+    }
+
 }

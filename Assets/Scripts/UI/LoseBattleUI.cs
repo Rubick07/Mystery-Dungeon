@@ -17,4 +17,10 @@ public class LoseBattleUI : MonoBehaviour
     public void Show() => gameObject.SetActive(true);
 
     public void Hide() => gameObject.SetActive(false);
+
+    private void OnDestroy()
+    {
+        BattleManager.instance.OnBattleLose -= BattleManager_OnBattleLose;
+    }
+
 }

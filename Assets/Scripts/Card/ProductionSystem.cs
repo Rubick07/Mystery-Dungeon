@@ -56,4 +56,10 @@ public class ProductionSystem : MonoBehaviour
             currentProducingCard = null;
         }
     }
+
+    private void OnDestroy()
+    {
+        BattleManager.instance.OnBattleEnd -= BattleManager_OnBattleEnd;
+    }
+
 }

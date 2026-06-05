@@ -2,15 +2,43 @@ using UnityEngine;
 
 public class RunManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static RunManager Instance;
+
+    [SerializeField] private TankData tankData;
+    [SerializeField] private int currentBattleIndex = 0;
+
+    public RunData CurrentRun { get; private set; }
+
+    private void Awake()
     {
-        
+        Instance = this;
+
+        StartRun();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartRun()
     {
-        
+        CurrentRun = new RunData();
+
+        CurrentRun.MaxHP = tankData.baseHP;
+
+        foreach (var card in tankData.starterDeck.cards)
+        {
+            CurrentRun.deck.Add(card);
+        }
+
+        //LoadBattle();
+    }
+
+    public void GoToNextBattle()
+    {
+        currentBattleIndex++;
+
+        LoadBattle(currentBattleIndex);
+    }
+
+    void LoadBattle(int battleIndex)
+    {
+        Debug.Log($"Loading Battle {battleIndex}");
     }
 }
