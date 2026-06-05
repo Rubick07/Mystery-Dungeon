@@ -9,10 +9,15 @@ public class BattleManager : MonoBehaviour
     public event EventHandler<List<RewardData>> OnBattleWin;
     public event EventHandler OnBattleLose;
 
+    public event EventHandler OnBattleStart;
     public event EventHandler OnBattleEnd;
 
     [SerializeField] private RewardManager rewardManager;
+    [SerializeField] private BattleInitializer battleInitializer;
 
+    [SerializeField] private DeckManager deckManager;
+    [SerializeField] private HandSystem handSystem;
+    [SerializeField] private CrewManager crewManager;
 
     private void Awake()
     {
@@ -22,6 +27,26 @@ public class BattleManager : MonoBehaviour
     private void Start()
     {
         Tank.OnAnyTankDied += Tank_OnAnyTankDied;
+    }
+
+    public void StartBattle()
+    {
+        CleanupBattle();
+
+        BattleData battle = RunManager.Instance.GetCurrentBattle();
+        battleInitializer.Initialize(RunManager.Instance.CurrentRun,battle);
+
+        OnBattleStart?.Invoke(this, EventArgs.Empty);
+    }
+    void CleanupBattle()
+    {
+        //enemySpawner.ClearEnemy();
+        //projectileManager.ClearAllProjectiles();
+
+        deckManager.Clear();
+        handSystem.Clear();
+        //crewManager.Clear();
+
     }
 
     private void Tank_OnAnyTankDied(object sender, bool e)

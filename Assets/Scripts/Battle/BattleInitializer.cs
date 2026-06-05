@@ -5,29 +5,37 @@ public class BattleInitializer : MonoBehaviour
     [SerializeField] private DeckManager deckManager;
     [SerializeField] private CrewManager crewManager;
     [SerializeField] private Tank playerTank;
+    [SerializeField] private EnemySpawner enemySpawner;
 
-    private void Start()
+    public void Initialize(RunData run, BattleData battleData)
     {
-        Initialize(RunManager.Instance.CurrentRun);
+        BuildPLayer(run);
+
+        SpawnEnemy(battleData);
     }
 
-    public void Initialize(RunData run)
+    private void BuildPLayer(RunData run)
     {
         BuildDeck(run);
-
         BuildTank(run);
-
         BuildCrews(run);
     }
+
+    void SpawnEnemy(BattleData battle)
+    {
+        enemySpawner.SpawnEnemy(battle);
+    }
+
 
     void BuildDeck(RunData run)
     {
         deckManager.Clear();
 
-        foreach (var card in run.deck)
+        deckManager.Initialize(run.deck);
+/*        foreach (var card in run.deck)
         {
             deckManager.AddCardToDeck(card);
-        }
+        }*/
     }
 
     void BuildTank(RunData run)
@@ -44,4 +52,5 @@ public class BattleInitializer : MonoBehaviour
             crewManager.RecruitCrew(crew);
         }
     }
+
 }

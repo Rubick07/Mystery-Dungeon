@@ -9,4 +9,9 @@ public class ReloadSpeedPassive : CrewPassive
     {
         tank.stats.reloadSpeed *= reloadMultiplier;
     }
+
+    public override void Disable(Tank tank)
+    {
+        tank.stats.reloadSpeed /= reloadMultiplier;
+    }
 }

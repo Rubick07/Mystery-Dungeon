@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RunManager : MonoBehaviour
@@ -5,8 +6,7 @@ public class RunManager : MonoBehaviour
     public static RunManager Instance;
 
     [SerializeField] private TankData tankData;
-    [SerializeField] private int currentBattleIndex = 0;
-
+    [SerializeField] private List<BattleData> battles;
     public RunData CurrentRun { get; private set; }
 
     private void Awake()
@@ -27,18 +27,24 @@ public class RunManager : MonoBehaviour
             CurrentRun.deck.Add(card);
         }
 
+        BattleManager.instance.StartBattle();
         //LoadBattle();
     }
 
     public void GoToNextBattle()
     {
-        currentBattleIndex++;
+        CurrentRun.currentBattle++;
 
-        LoadBattle(currentBattleIndex);
+        BattleManager.instance.StartBattle();
     }
 
     void LoadBattle(int battleIndex)
     {
         Debug.Log($"Loading Battle {battleIndex}");
+    }
+
+    public BattleData GetCurrentBattle()
+    {
+        return battles[CurrentRun.currentBattle];
     }
 }

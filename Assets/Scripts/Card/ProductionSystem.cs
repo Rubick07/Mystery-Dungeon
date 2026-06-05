@@ -14,6 +14,12 @@ public class ProductionSystem : MonoBehaviour
     private void Start()
     {
         BattleManager.instance.OnBattleEnd += BattleManager_OnBattleEnd;
+        BattleManager.instance.OnBattleStart += BattleManager_OnBattleStart; ;
+    }
+
+    private void BattleManager_OnBattleStart(object sender, System.EventArgs e)
+    {
+        isActive = true;
     }
 
     private void BattleManager_OnBattleEnd(object sender, System.EventArgs e)
@@ -59,6 +65,7 @@ public class ProductionSystem : MonoBehaviour
 
     private void OnDestroy()
     {
+        BattleManager.instance.OnBattleStart -= BattleManager_OnBattleStart; ;
         BattleManager.instance.OnBattleEnd -= BattleManager_OnBattleEnd;
     }
 

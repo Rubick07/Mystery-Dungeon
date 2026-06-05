@@ -8,6 +8,16 @@ public class CardPlayer : MonoBehaviour
     [SerializeField] private Tank playerTank;
     [SerializeField] private Tank enemyTank;
 
+    private void Awake()
+    {
+        EnemySpawner.OnNewEnemySpawn += EnemySpawner_OnNewEnemySpawn;
+    }
+
+    private void EnemySpawner_OnNewEnemySpawn(object sender, Tank e)
+    {
+        enemyTank = e;
+    }
+
     public void PlayCard(RuntimeCard card)
     {
         if (card == null)
@@ -20,5 +30,10 @@ public class CardPlayer : MonoBehaviour
         );
 
         handSystem.RemoveCard(card);
+    }
+
+    private void OnDestroy()
+    {
+        EnemySpawner.OnNewEnemySpawn -= EnemySpawner_OnNewEnemySpawn;
     }
 }

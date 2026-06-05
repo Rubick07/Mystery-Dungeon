@@ -37,6 +37,7 @@ public class RewardSystem : MonoBehaviour
             case RewardType.TankUpgrade:
                 RunManager.Instance.CurrentRun.MaxHP += reward.tankUpgradeReward.hpBonus;
                 RunManager.Instance.CurrentRun.ReloadMultiplier *= reward.tankUpgradeReward.reloadMultiplier;
+                ApplyTankUpgrade(reward.tankUpgradeReward);
                 break;
         }
 

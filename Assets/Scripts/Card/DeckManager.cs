@@ -76,7 +76,8 @@ public class DeckManager : MonoBehaviour
 
     public void Clear()
     {
-        cardList.Clear();
+        //cardList.Clear();
+        drawPile.Clear();
     }
 
 }

@@ -10,8 +10,21 @@ public class HandSystemUI : MonoBehaviour
 
     private void Start()
     {
-
         cardContainerTransform.RemoveAllChild();
+
+        HandSystem.instance.OnCardCleared += HandSystem_OnCardCleared;
+    }
+
+    private void HandSystem_OnCardCleared(object sender, System.EventArgs e)
+    {
+        cardUIList.RemoveAll(item => item == null);
+
+        for (int i = cardUIList.Count - 1; i >= 0; i--)
+        {
+            Destroy(cardUIList[i].gameObject);
+        }
+
+        cardUIList.Clear();
     }
 
     private void HandSystem_OnCardUse(object sender, RuntimeCard e)

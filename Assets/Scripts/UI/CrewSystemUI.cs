@@ -25,13 +25,43 @@ public class CrewSystemUI : MonoBehaviour
 
         crewUIList.Add(crewUI);
     }
+    private void CrewManager_OnCrewRemoved(object sender, ActiveCrew e)
+    {
+        foreach(CrewUI crewUI in crewUIList)
+        {
+            if(crewUI.GetActiveCrew() == e)
+            {
+                crewUIList.Remove(crewUI);
+                Destroy(crewUI.gameObject);
+                return;
+            }
+        }
+    }
+    private void CrewManager_OnCrewCleared(object sender, System.EventArgs e)
+    {
+        crewUIList.RemoveAll(item => item == null);
+
+        for (int i = crewUIList.Count - 1; i >= 0; i--)
+        {
+            Destroy(crewUIList[i].gameObject);
+        }
+
+        crewUIList.Clear();
+    }
 
     private void OnEnable()
     {
         crewManager.OnCrewAdded += CrewManager_OnCrewAdded;
+        crewManager.OnCrewRemoved += CrewManager_OnCrewRemoved;
+        crewManager.OnCrewCleared += CrewManager_OnCrewCleared; ;
+        
     }
+
     private void OnDisable()
     {
         crewManager.OnCrewAdded -= CrewManager_OnCrewAdded;
+        crewManager.OnCrewRemoved -= CrewManager_OnCrewRemoved;
+        crewManager.OnCrewCleared -= CrewManager_OnCrewCleared; ;
+
     }
 }

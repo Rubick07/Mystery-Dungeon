@@ -7,6 +7,7 @@ public class HandSystem : MonoBehaviour
 
     public event EventHandler<RuntimeCard> OnCardAdded;
     public event EventHandler<RuntimeCard> OnCardRemoved;
+    public event EventHandler OnCardCleared;
 
     [SerializeField] private int maxHandSize = 5;
     [SerializeField] private CardPlayer cardPlayer;
@@ -40,6 +41,13 @@ public class HandSystem : MonoBehaviour
     public List<RuntimeCard> GetHand()
     {
         return hand;
+    }
+
+    public void Clear()
+    {
+        hand.Clear();
+
+        OnCardCleared?.Invoke(this, EventArgs.Empty);
     }
 
     public CardPlayer GetCardPlayer() => cardPlayer;
