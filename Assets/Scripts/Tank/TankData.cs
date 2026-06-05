@@ -1,16 +1,11 @@
 using UnityEngine;
 
-public class TankData : MonoBehaviour
+[CreateAssetMenu(menuName = "Tank/Tank Data")]
+public class TankData : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string tankName;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int baseHP;
+
+    public StarterDeckData starterDeck;
 }

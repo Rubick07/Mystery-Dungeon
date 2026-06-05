@@ -28,11 +28,21 @@ public class Tank : MonoBehaviour
     [HideInInspector]public int maxHP;
     private int lastDamageValue;
 
-
     private void Awake()
     {
-        maxHP = currentHealth;
+        if (isEnemy)
+        {
+            Initialized(currentHealth);
+        }
     }
+
+    public void Initialized(int maxHP)
+    {
+        this.maxHP= maxHP;
+        currentHealth = maxHP;
+
+    }
+
 
     public void TakeDamage(int damage)
     {
