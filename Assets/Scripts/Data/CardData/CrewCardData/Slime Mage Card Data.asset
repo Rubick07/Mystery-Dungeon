@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7cb2a08f7967670469657c9a7668de87, type: 3}
-  m_Name: Crew Card Data
+  m_Name: Slime Mage Card Data
   m_EditorClassIdentifier: 
-  cardName: Spawn Goblin Engineer
-  artwork: {fileID: 21300000, guid: d3d2a09e2230e6e44a37a2b56cee3085, type: 3}
+  cardName: Spawn Slime Mage
+  artwork: {fileID: 21300000, guid: 93f68d4e410fef844a934d30db4a93aa, type: 3}
   rarity: 0
   cardType: 2
   deliveryMethod: 2
   tags: 
-  descText: kartu buat manggil goblin enginer
+  descText: kartu buat manggil Slime Mage
   productionTime: 2
   action: {fileID: 11400000, guid: d54497e12aaa9a44abaf386b890d8589, type: 2}
-  crewData: {fileID: 11400000, guid: d166bfdb112de704e81856a6a220302d, type: 2}
+  crewData: {fileID: 11400000, guid: a078fa37d7fc5a4488b3d949db19aaff, type: 2}

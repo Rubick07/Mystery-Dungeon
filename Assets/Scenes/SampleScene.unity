@@ -2264,7 +2264,7 @@ MonoBehaviour:
   cardPool:
   - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
   crewPool:
-  - {fileID: 11400000, guid: 4e3fec73b9a15514094d10fee961d2d6, type: 2}
+  - {fileID: 11400000, guid: d5b5bea7fd7916d4bb1413717affcb44, type: 2}
   upgradePool:
   - {fileID: 11400000, guid: 53d4d04accf27f847bd6f0216bbd51da, type: 2}
 --- !u!1 &962889962
@@ -2926,6 +2926,8 @@ MonoBehaviour:
     reloadSpeed: 1
     productionSpeed: 1
     projectileDamage: 1
+    projectileDamageMultiplier: 1
+    magicDamageMultiplier: 1
   cannonSystem: {fileID: 1135887011}
   crewManager: {fileID: 1135887016}
   isEnemy: 0

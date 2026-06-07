@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edd7199757052d4fb87051026ed8651, type: 3}
-  m_Name: Starter Deck Data
+  m_Script: {fileID: 11500000, guid: 22ebd187b66a250458ef79eff46b620b, type: 3}
+  m_Name: Arcane Affinity Passive
   m_EditorClassIdentifier: 
-  cards:
-  - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
-  - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
+  magicDamageMultiplier: 0.8

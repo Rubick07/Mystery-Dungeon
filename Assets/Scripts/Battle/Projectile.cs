@@ -4,14 +4,39 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     [SerializeField] private int damage = 10;
+    [SerializeField] private DamageType damageType;
 
-    private Tank owner;
+    protected Tank owner;
+
+    public enum DamageType
+    {
+        Physical,
+        Magic
+    }
 
     public void Initialize(Tank tank)
     {
         owner = tank;
 
+        int finalDamage = damage;
+
+        switch (damageType)
+        {
+            case DamageType.Physical:
+                finalDamage = Mathf.RoundToInt(damage * tank.stats.projectileDamageMultiplier);
+                break;
+
+            case DamageType.Magic:
+                finalDamage = Mathf.RoundToInt(damage * tank.stats.magicDamageMultiplier);
+                break;
+        }
+
+        this.damage = finalDamage;
+
+
         transform.right = owner.gameObject.transform.right;
+
+        BattleManager.instance.OnBattleEnd += BattleManager_OnBattleEnd;
     }
 
     private void Update()
@@ -25,6 +50,11 @@ public class Projectile : MonoBehaviour
 
         if (otherProjectile != null)
         {
+            if (IsSameTank(otherProjectile.owner))
+            {
+                return;
+            }
+
             Destroy(otherProjectile.gameObject);
             Destroy(gameObject);
 
@@ -39,6 +69,22 @@ public class Projectile : MonoBehaviour
 
             Destroy(gameObject);
         }
+    }
+
+    public bool IsSameTank(Tank tank)
+    {
+        return owner == tank;
+    }
+
+    private void BattleManager_OnBattleEnd(object sender, System.EventArgs e)
+    {
+        Destroy(gameObject);
+    }
+
+
+    private void OnDestroy()
+    {
+        BattleManager.instance.OnBattleEnd -= BattleManager_OnBattleEnd;
     }
 
 

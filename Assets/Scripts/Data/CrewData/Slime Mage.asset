@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde04fbab27faf24b8ac38fa0585fa9e, type: 3}
+  m_Name: Slime Mage
+  m_EditorClassIdentifier: 
+  crewName: Rocket
+  portrait: {fileID: 21300000, guid: 93f68d4e410fef844a934d30db4a93aa, type: 3}
+  description: 
+  tags: 01000000
+  crewCards:
+  - {fileID: 11400000, guid: 04ebb543d78c8d344a995fdea83055d7, type: 2}
+  - {fileID: 11400000, guid: 8095f0353fb74ad408d5476fa3662630, type: 2}
+  passive: {fileID: 11400000, guid: a7602f03421178c4b807b36dd21b8783, type: 2}

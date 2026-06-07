@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92f72f27be66fd48ac450f6f8f4b556, type: 3}
+  m_Name: MagicMissileCardData
+  m_EditorClassIdentifier: 
+  cardName: Magic Missile
+  artwork: {fileID: 21300000, guid: ebc7c19982b19df4c979b5936b41cc6f, type: 3}
+  rarity: 0
+  cardType: 0
+  deliveryMethod: 0
+  tags: 00000000
+  descText: ini bola
+  productionTime: 3
+  action: {fileID: 11400000, guid: e7835e422b7f1be4888e1a6b5eff4733, type: 2}

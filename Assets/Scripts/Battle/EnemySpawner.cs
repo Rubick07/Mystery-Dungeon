@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
         Debug.Log("Spawn Enemy");
 
-        GameObject enemyObj = Instantiate( battleData.enemyPrefab,spawnPoint.position, spawnPoint.rotation);
+        GameObject enemyObj = Instantiate(battleData.enemyPrefab,spawnPoint.position, spawnPoint.rotation);
 
         currentEnemy = enemyObj.GetComponent<Tank>();
 
