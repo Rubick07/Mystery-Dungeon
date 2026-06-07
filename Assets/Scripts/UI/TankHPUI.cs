@@ -14,7 +14,6 @@ public class TankHPUI : MonoBehaviour
         if (isEnemy)
         {
             EnemySpawner.OnNewEnemySpawn += EnemySpawner_OnNewEnemySpawn;
-            Debug.Log("Masuk");
             return;
         }
     }
@@ -34,7 +33,6 @@ public class TankHPUI : MonoBehaviour
         tank = e;
         tank.OnTankHpChanged += Tank_OnTankHpChanged;
 
-        Debug.Log("Test");
         Refresh();
     }
 

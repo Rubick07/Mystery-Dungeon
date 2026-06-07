@@ -5,7 +5,7 @@ public class BattleData : ScriptableObject
 {
     public string battleName;
 
-    public int enemyHP;
+    public EnemyData enemyData;
 
     public GameObject enemyPrefab;
 }

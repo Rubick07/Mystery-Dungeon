@@ -153,10 +153,11 @@ GameObject:
   - component: {fileID: 5289573498127218333}
   - component: {fileID: 509226435416000718}
   - component: {fileID: 3670020541942170979}
-  - component: {fileID: 1032260087566420456}
   - component: {fileID: 6727275941806109062}
   - component: {fileID: 413587130027260059}
   - component: {fileID: 990178234032291755}
+  - component: {fileID: 3763616969868264216}
+  - component: {fileID: 3062727642030523298}
   m_Layer: 0
   m_Name: EnemyTank
   m_TagString: Untagged
@@ -220,6 +221,8 @@ MonoBehaviour:
     reloadSpeed: 1
     productionSpeed: 1
     projectileDamage: 1
+    projectileDamageMultiplier: 1
+    magicDamageMultiplier: 1
   cannonSystem: {fileID: 3670020541942170979}
   crewManager: {fileID: 6727275941806109062}
   isEnemy: 1
@@ -238,21 +241,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ownerTank: {fileID: 509226435416000718}
   reloadTime: 2
---- !u!114 &1032260087566420456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8327066398520252835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56be6d27908b85443a45c043d4bdf265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cannon: {fileID: 3670020541942170979}
-  attackCard: {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
-  interval: 3
 --- !u!114 &6727275941806109062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfbb3e8e9d7b77945b4409e48012b6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckSystem: {fileID: 0}
+  deckSystem: {fileID: 413587130027260059}
   maxCrew: 3
 --- !u!114 &413587130027260059
 MonoBehaviour:
@@ -292,3 +280,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTextPrefab: {fileID: 8475048210450439382, guid: 1a2590af029fff14c8f2599ed3a1efdc, type: 3}
+--- !u!114 &3763616969868264216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327066398520252835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832e6130230329c42ad1dc2d04e36e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3062727642030523298}
+  cards: []
+  interval: 3
+--- !u!114 &3062727642030523298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327066398520252835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e5ae1730e3da74493afeebc3ade7f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tank: {fileID: 509226435416000718}
+  cannon: {fileID: 3670020541942170979}

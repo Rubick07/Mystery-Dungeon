@@ -16,13 +16,15 @@ public class EnemySpawner : MonoBehaviour
             Destroy(currentEnemy.gameObject);
         }
 
-        Debug.Log("Spawn Enemy");
 
         GameObject enemyObj = Instantiate(battleData.enemyPrefab,spawnPoint.position, spawnPoint.rotation);
 
         currentEnemy = enemyObj.GetComponent<Tank>();
 
-        currentEnemy.Initialized(battleData.enemyHP);
+        EnemyBrain enemyBrain = enemyObj.GetComponent<EnemyBrain>();
+        enemyBrain.Initialized(battleData.enemyData);
+
+        currentEnemy.Initialized(battleData.enemyData.maxHP);
 
         OnNewEnemySpawn?.Invoke(this, currentEnemy);
 

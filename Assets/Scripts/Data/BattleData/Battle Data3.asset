@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Battle Data3
   m_EditorClassIdentifier: 
   battleName: 1
-  enemyHP: 100
+  enemyData: {fileID: 11400000, guid: f17741253e438314d906b9896115aa9c, type: 2}
   enemyPrefab: {fileID: 8327066398520252835, guid: f8ebfea64a079bb45a576004db347f63, type: 3}

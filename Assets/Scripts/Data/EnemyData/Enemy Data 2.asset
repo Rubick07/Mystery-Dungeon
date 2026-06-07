@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92a7550baeedf3544b8311622f655e3f, type: 3}
-  m_Name: Spawn Multiple Projectile_Cannonball 5
+  m_Script: {fileID: 11500000, guid: c34a6f92bbfe57d4981598eae4da1183, type: 3}
+  m_Name: Enemy Data 2
   m_EditorClassIdentifier: 
-  spawn: 5
-  projectilePrefab: {fileID: 1405216805985853072, guid: 224645a7cfa846b4b95a3406a08b2b9d, type: 3}
+  enemyName: b
+  maxHP: 20
+  cards:
+  - {fileID: 11400000, guid: 1eeb8ee0a4abe774c849e23ccba3d384, type: 2}
+  attackInterval: 1

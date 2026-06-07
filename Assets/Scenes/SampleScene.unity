@@ -2264,7 +2264,7 @@ MonoBehaviour:
   cardPool:
   - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
   crewPool:
-  - {fileID: 11400000, guid: d5b5bea7fd7916d4bb1413717affcb44, type: 2}
+  - {fileID: 11400000, guid: e29984960520dc64cbc3e4496c5629e9, type: 2}
   upgradePool:
   - {fileID: 11400000, guid: 53d4d04accf27f847bd6f0216bbd51da, type: 2}
 --- !u!1 &962889962
@@ -3565,9 +3565,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tankData: {fileID: 11400000, guid: fbcddff5e75472448a8474d0277f43c7, type: 2}
   battles:
+  - {fileID: 11400000, guid: e34496c75b0eafe4cbf6e5dbd87a38d2, type: 2}
   - {fileID: 11400000, guid: 4f9b549d3656d8948bd0d8d1b77fd998, type: 2}
   - {fileID: 11400000, guid: 3f03de0a93d646540871971710bb1851, type: 2}
-  - {fileID: 11400000, guid: e34496c75b0eafe4cbf6e5dbd87a38d2, type: 2}
 --- !u!1 &1308785444
 GameObject:
   m_ObjectHideFlags: 0

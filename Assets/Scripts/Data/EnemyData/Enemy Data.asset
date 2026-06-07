@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edd7199757052d4fb87051026ed8651, type: 3}
-  m_Name: Starter Deck Data
+  m_Script: {fileID: 11500000, guid: c34a6f92bbfe57d4981598eae4da1183, type: 3}
+  m_Name: Enemy Data
   m_EditorClassIdentifier: 
+  enemyName: a
+  maxHP: 60
   cards:
   - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
-  - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
-  - {fileID: 11400000, guid: 4e3fec73b9a15514094d10fee961d2d6, type: 2}
+  - {fileID: 11400000, guid: 517682e3b2b81814fbd029b892af4f0d, type: 2}
+  attackInterval: 2.5

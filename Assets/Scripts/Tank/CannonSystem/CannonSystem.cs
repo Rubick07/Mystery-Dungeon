@@ -34,7 +34,7 @@ public class CannonSystem : MonoBehaviour
     {
         isReloading = true;
 
-        Debug.Log("Reloading...");
+        //Debug.Log("Reloading...");
 
         float finalReload = reloadTime * ownerTank.stats.reloadSpeed * reloadMultiplier;
 
@@ -59,7 +59,7 @@ public class CannonSystem : MonoBehaviour
 
         card.Data.action.Activate(context);
 
-        Debug.Log("FIRE: " + card.Data.cardName);
+        //Debug.Log("FIRE: " + card.Data.cardName);
     }
 
     public void AddReloadMultiplier(float a)

@@ -31,4 +31,11 @@ public class EnemyBrain : MonoBehaviour
         enemy.Cannon.AddCard(
             new RuntimeCard(card));
     }
+
+    public void Initialized(EnemyData enemyData)
+    {
+        cards = enemyData.cards;
+        interval = enemyData.attackInterval;
+    }
+
 }

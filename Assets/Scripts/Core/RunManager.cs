@@ -24,6 +24,17 @@ public class RunManager : MonoBehaviour
 
         foreach (var card in tankData.starterDeck.cards)
         {
+            if(card.cardType == CardType.Crew)
+            {
+                CrewCardData crewCard = card as CrewCardData;
+
+                if (crewCard == null)
+                    return;
+
+                CurrentRun.crews.Add(crewCard.crewData);
+
+                continue;
+            }
             CurrentRun.deck.Add(card);
         }
 
