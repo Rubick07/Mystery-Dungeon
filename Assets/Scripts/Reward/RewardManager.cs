@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RewardManager : MonoBehaviour
 {
-    [SerializeField] private List<CardData> cardPool;
+    [SerializeField] private List<RelicData> relicPool;
 
     [SerializeField] private List<CrewCardData> crewPool;
 
@@ -13,7 +13,7 @@ public class RewardManager : MonoBehaviour
     {
         List<RewardData> rewards = new();
 
-        rewards.Add(CreateRandomCardReward());
+        rewards.Add(CreateRandomRelicReward());
 
         rewards.Add(CreateRandomCrewReward());
 
@@ -22,13 +22,12 @@ public class RewardManager : MonoBehaviour
         return rewards;
     }
 
-    RewardData CreateRandomCardReward()
+    RewardData CreateRandomRelicReward()
     {
         return new RewardData
         {
-            rewardType = RewardType.Card,
-            cardReward = cardPool[
-                Random.Range(0, cardPool.Count)]
+            rewardType = RewardType.Relic,
+            relicReward = relicPool[Random.Range(0, relicPool.Count)]
         };
     }
 
@@ -37,8 +36,7 @@ public class RewardManager : MonoBehaviour
         return new RewardData
         {
             rewardType = RewardType.CrewCard,
-            cardReward = crewPool[
-                Random.Range(0, crewPool.Count)]
+            cardReward = crewPool[Random.Range(0, crewPool.Count)]
         };
     }
 
@@ -47,8 +45,7 @@ public class RewardManager : MonoBehaviour
         return new RewardData
         {
             rewardType = RewardType.TankUpgrade,
-            tankUpgradeReward = upgradePool[
-                Random.Range(0, upgradePool.Count)]
+            tankUpgradeReward = upgradePool[Random.Range(0, upgradePool.Count)]
         };
     }
 }

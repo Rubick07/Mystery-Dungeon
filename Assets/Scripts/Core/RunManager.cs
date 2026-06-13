@@ -13,6 +13,11 @@ public class RunManager : MonoBehaviour
     {
         Instance = this;
 
+        //StartRun();
+    }
+
+    private void Start()
+    {
         StartRun();
     }
 

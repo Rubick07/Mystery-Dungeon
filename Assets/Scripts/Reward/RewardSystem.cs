@@ -20,8 +20,8 @@ public class RewardSystem : MonoBehaviour
     {
         switch (reward.rewardType)
         {
-            case RewardType.Card:
-                RunManager.Instance.CurrentRun.deck.Add(reward.cardReward);
+            case RewardType.Relic:
+                RunManager.Instance.CurrentRun.relics.Add(reward.relicReward);
                 break;
 
             case RewardType.CrewCard:

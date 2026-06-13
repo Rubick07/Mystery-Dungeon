@@ -8,6 +8,8 @@ public class RunData
 
     public List<CrewData> crews = new();
 
+    public List<RelicData> relics = new();
+
     public int currentBattle;
     
     public int MaxHP = 100;

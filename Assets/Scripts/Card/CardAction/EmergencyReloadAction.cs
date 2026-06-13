@@ -14,8 +14,7 @@ public class EmergencyReloadAction : CardActions
         );
     }
 
-    System.Collections.IEnumerator ApplyReloadBoost(
-        BattleContext context)
+    System.Collections.IEnumerator ApplyReloadBoost(BattleContext context)
     {
         CannonSystem cannon =
             context.Owner.cannonSystem;

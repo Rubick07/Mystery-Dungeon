@@ -61,7 +61,6 @@ public class BattleManager : MonoBehaviour
         {
             OnBattleLose?.Invoke(this, EventArgs.Empty);
         }
-
         OnBattleEnd?.Invoke(this, EventArgs.Empty);
     }
 

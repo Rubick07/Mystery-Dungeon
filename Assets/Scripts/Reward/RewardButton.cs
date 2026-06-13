@@ -20,19 +20,16 @@ public class RewardButton : MonoBehaviour
 
         switch (data.rewardType)
         {
-            case RewardType.Card:
-                titleText.text =
-                    data.cardReward.cardName;
+            case RewardType.Relic:
+                titleText.text = data.relicReward.relicName;
                 break;
 
             case RewardType.CrewCard:
-                titleText.text =
-                    data.cardReward.cardName;
+                titleText.text = data.cardReward.cardName;
                 break;
 
             case RewardType.TankUpgrade:
-                titleText.text =
-                    data.tankUpgradeReward.upgradeName;
+                titleText.text = data.tankUpgradeReward.upgradeName;
                 break;
         }
     }
