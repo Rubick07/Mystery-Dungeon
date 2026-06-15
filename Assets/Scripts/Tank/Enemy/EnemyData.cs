@@ -8,6 +8,8 @@ public class EnemyData : ScriptableObject
 
     public int maxHP;
 
+    public bool isBoss;
+
     public List<CardData> cards;
 
     public float attackInterval;

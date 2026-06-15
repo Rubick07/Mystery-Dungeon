@@ -6,6 +6,8 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager instance;
 
+    public event EventHandler OnRunClear;
+
     public event EventHandler<List<RewardData>> OnBattleWin;
     public event EventHandler OnBattleLose;
 
@@ -59,12 +61,18 @@ public class BattleManager : MonoBehaviour
         {
             OnBattleLose?.Invoke(this, EventArgs.Empty);
         }
-
         OnBattleEnd?.Invoke(this, EventArgs.Empty);
     }
 
     public void OnBattleWon()
     {
+        if (RunManager.Instance.IsCurrentBattleLast())
+        {
+            OnRunClear?.Invoke(this, EventArgs.Empty);
+            return;
+        }
+
+
         List<RewardData> rewards = rewardManager.GenerateRewards();
 
         OnBattleWin?.Invoke(this, rewards);

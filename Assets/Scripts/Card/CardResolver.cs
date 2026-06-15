@@ -11,7 +11,7 @@ public class CardResolver : MonoBehaviour
         {
             Owner = owner,
             Enemy = enemy,
-            Card = card
+            //Card = card
         };
 
         switch (card.Data.deliveryMethod)

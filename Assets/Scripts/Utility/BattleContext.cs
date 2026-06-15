@@ -5,5 +5,10 @@ public class BattleContext
     public Tank Owner;
     public Tank Enemy;
 
-    public RuntimeCard Card;
+    public CrewManager CrewManager;
+    public ProductionSystem ProductionSystem;
+
+    public RelicManager RelicManager;
+
+    //public RuntimeCard Card;
 }

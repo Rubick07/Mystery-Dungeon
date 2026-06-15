@@ -7,6 +7,8 @@ public class EnemyBrain : MonoBehaviour
 
     [SerializeField] private List<CardData> cards;
 
+    //[SerializeField] private CardResolver cardResolver;
+
     [SerializeField] private float interval = 3f;
 
     private float timer;
@@ -36,6 +38,16 @@ public class EnemyBrain : MonoBehaviour
     {
         cards = enemyData.cards;
         interval = enemyData.attackInterval;
+    }
+
+    public void AddCard(CardData card)
+    {
+        cards.Add(card);
+    }
+
+    public void SetAttackInterval(float interval)
+    {
+        this.interval = interval;
     }
 
 }

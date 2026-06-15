@@ -30,4 +30,6 @@ public class EnemySpawner : MonoBehaviour
 
         return currentEnemy;
     }
+
+    public Tank GetCurrentEnemyTank() => currentEnemy;
 }

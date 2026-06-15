@@ -17,6 +17,6 @@ MonoBehaviour:
   description: ini goblin pinter
   tags: 
   crewCards:
-  - {fileID: 11400000, guid: 517682e3b2b81814fbd029b892af4f0d, type: 2}
   - {fileID: 11400000, guid: 1eeb8ee0a4abe774c849e23ccba3d384, type: 2}
+  - {fileID: 11400000, guid: dcde1b5122be50241bc8d4abb82b844a, type: 2}
   passive: {fileID: 11400000, guid: 6190a27f9b9015f458a0ea0a99b965ab, type: 2}

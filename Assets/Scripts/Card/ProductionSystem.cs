@@ -11,6 +11,8 @@ public class ProductionSystem : MonoBehaviour
 
     private bool isActive = true;
 
+    private float productionRate = 1f;
+
     private void Start()
     {
         BattleManager.instance.OnBattleEnd += BattleManager_OnBattleEnd;
@@ -50,10 +52,9 @@ public class ProductionSystem : MonoBehaviour
         if (currentProducingCard == null)
             return;
 
-        timer += Time.deltaTime;
+        timer += Time.deltaTime * productionRate;
 
-        float productionTime =
-            currentProducingCard.Data.productionTime;
+        float productionTime = currentProducingCard.Data.productionTime;
 
         if (timer >= productionTime)
         {
@@ -61,6 +62,11 @@ public class ProductionSystem : MonoBehaviour
 
             currentProducingCard = null;
         }
+    }
+
+    public void ModifyProductionRate(float mod)
+    {
+        productionRate += mod;
     }
 
     private void OnDestroy()

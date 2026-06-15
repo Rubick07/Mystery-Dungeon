@@ -13,6 +13,11 @@ public class RunManager : MonoBehaviour
     {
         Instance = this;
 
+        //StartRun();
+    }
+
+    private void Start()
+    {
         StartRun();
     }
 
@@ -58,4 +63,10 @@ public class RunManager : MonoBehaviour
     {
         return battles[CurrentRun.currentBattle];
     }
+
+    public bool IsCurrentBattleLast()
+    {
+        return battles.Count-1 == CurrentRun.currentBattle;
+    }
+
 }

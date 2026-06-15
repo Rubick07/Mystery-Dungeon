@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53624161029b4bd42a4b520144f6b849, type: 3}
+  m_Name: OverclockEngine Relic Data
+  m_EditorClassIdentifier: 
+  relicName: Overclock Engine
+  description: 
+  icon: {fileID: 0}
+  effect: {fileID: 11400000, guid: 40a3c80761d63854f8b1d1116ed51203, type: 2}

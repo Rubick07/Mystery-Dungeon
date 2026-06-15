@@ -2,16 +2,38 @@ using UnityEngine;
 
 public class BattleInitializer : MonoBehaviour
 {
+    public static BattleInitializer instance;
+
     [SerializeField] private DeckManager deckManager;
     [SerializeField] private CrewManager crewManager;
+    [SerializeField] private ProductionSystem productionSystem;
     [SerializeField] private Tank playerTank;
     [SerializeField] private EnemySpawner enemySpawner;
+    [SerializeField] private RelicManager relicManager;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void Initialize(RunData run, BattleData battleData)
     {
         BuildPLayer(run);
-
         SpawnEnemy(battleData);
+
+
+        BattleContext playerContext = new BattleContext()
+        {
+            Owner = playerTank,
+            Enemy = enemySpawner.GetCurrentEnemyTank(),
+            ProductionSystem = productionSystem,
+
+            CrewManager = crewManager,
+            RelicManager = relicManager
+        };
+
+        relicManager.Initialize(run.relics);
+        relicManager.TriggerBattleStart(playerContext);
     }
 
     private void BuildPLayer(RunData run)
@@ -51,6 +73,22 @@ public class BattleInitializer : MonoBehaviour
         {
             crewManager.RecruitCrew(crew);
         }
+    }
+
+    public BattleContext GetBattleContext()
+    {
+        BattleContext playerContext = new BattleContext()
+        {
+            Owner = playerTank,
+            Enemy = enemySpawner.GetCurrentEnemyTank(),
+
+            ProductionSystem = productionSystem,
+
+            CrewManager = crewManager,
+            RelicManager = relicManager
+        };
+
+        return playerContext;
     }
 
 }
