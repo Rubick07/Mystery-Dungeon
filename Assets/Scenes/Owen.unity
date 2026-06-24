@@ -480,6 +480,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166187246}
   m_CullTransparentMesh: 1
+--- !u!1 &200846101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 200846103}
+  - component: {fileID: 200846102}
+  m_Layer: 0
+  m_Name: RelicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &200846102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200846101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff5ac34f463d2c4d89ba4d5d7dfb0ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &200846103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200846101}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.059802026, y: 1.9661511, z: -0.017676873}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &221197957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1553,8 +1597,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckManager: {fileID: 865713811}
   crewManager: {fileID: 1135887016}
+  productionSystem: {fileID: 0}
   playerTank: {fileID: 1135887009}
   enemySpawner: {fileID: 1595475265}
+  relicManager: {fileID: 0}
 --- !u!4 &485752272
 Transform:
   m_ObjectHideFlags: 0
@@ -2261,8 +2307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dd72d681a040043a7d0811849f46db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardPool:
-  - {fileID: 11400000, guid: 07da66206ed60a44e96e7f90ec1c7c2a, type: 2}
+  relicPool: []
   crewPool:
   - {fileID: 11400000, guid: e29984960520dc64cbc3e4496c5629e9, type: 2}
   upgradePool:
@@ -5315,3 +5360,4 @@ SceneRoots:
   - {fileID: 1135887010}
   - {fileID: 962889963}
   - {fileID: 372423054}
+  - {fileID: 200846103}
