@@ -19,6 +19,7 @@ public class CardSelectEffectsHandler : MonoBehaviour, IPointerEnterHandler, IPo
     }
     private IEnumerator MoveCard(bool startingAnimation)
     {
+        Debug.Log("masuk");
         Vector3 endPos;
         Vector3 endScale;
 
