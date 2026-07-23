@@ -13,15 +13,17 @@ public class CardUI : MonoBehaviour
 
         this.runtimeCard = runtimeCard;
 
-        button.onClick.AddListener( () => 
+    }
+
+    public RuntimeCard GetRuntime() => runtimeCard;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("CardPlayCollider"))
         {
             Destroy(gameObject);
 
             HandSystem.instance.GetCardPlayer().PlayCard(runtimeCard);
-        });
+        }
     }
-
-    public RuntimeCard GetRuntime() => runtimeCard; 
-
-
 }
